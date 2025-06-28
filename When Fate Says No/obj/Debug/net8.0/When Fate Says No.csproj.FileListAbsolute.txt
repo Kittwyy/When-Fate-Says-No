@@ -12,3 +12,4 @@ C:\Users\Jade\RiderProjects\When Fate Says No\When Fate Says No\obj\Debug\net8.0
 C:\Users\Jade\RiderProjects\When Fate Says No\When Fate Says No\obj\Debug\net8.0\When Fate Says No.pdb
 C:\Users\Jade\RiderProjects\When Fate Says No\When Fate Says No\obj\Debug\net8.0\When Fate Says No.genruntimeconfig.cache
 C:\Users\Jade\RiderProjects\When Fate Says No\When Fate Says No\obj\Debug\net8.0\ref\When Fate Says No.dll
+C:\Users\Jade\RiderProjects\When Fate Says No\When Fate Says No\obj\Debug\net8.0\When Fate Says No.sourcelink.json

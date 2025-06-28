@@ -18,32 +18,32 @@ public class RoomScene : IScene
         Console.WriteLine("1. Go to the train tracks on the edge of town.");
         Console.WriteLine("2. Go to the old, forgotten bridge.");
         Console.WriteLine("3. Just... stay here. See what happens.");
+        Console.WriteLine("4. Look at the diary on the desk."); // NEUE OPTION
         Console.WriteLine();
         Console.Write("Your choice: ");
 
         string choice = Console.ReadLine();
-
-        // Hier kommt der wichtigste Unterschied:
-        // Wir rufen keine Methode mehr auf, sondern erstellen ein *Objekt* der nächsten Szene.
         IScene nextScene;
 
         switch (choice)
         {
             case "1":
-                nextScene = new TrainTracksScene(); // Erstelle die Gleis-Szene
+                nextScene = new TrainTracksScene();
                 break;
             case "2":
-                nextScene = new BridgeScene(); // Erstelle die Brücken-Szene
+                nextScene = new BridgeScene();
                 break;
             case "3":
-                nextScene = new StayInRoomScene(); // Erstelle die "Im-Zimmer-bleiben"-Szene
+                nextScene = new StayInRoomScene();
+                break;
+            case "4": // NEUER CASE
+                nextScene = new DiaryScene();
                 break;
             default:
-                nextScene = this; // Wenn die Eingabe ungültig ist, lade diese Szene einfach neu.
+                nextScene = this; 
                 break;
         }
         
-        // Lade die ausgewählte nächste Szene.
         nextScene.Load();
     }
 }

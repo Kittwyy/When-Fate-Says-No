@@ -2,6 +2,8 @@
 
 class Program
 {
+    
+    public static List<string> DiaryEntries = new List<string>(DiaryLore.GetPrewrittenEntries());
     static void Main(string[] args)
     {
         // Das Hauptmenü bleibt wie es war.
