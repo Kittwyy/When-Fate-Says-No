@@ -1,46 +1,52 @@
 ﻿using System;
+using System.Linq;
 
 public class StayInRoomScene : IScene
 {
     public void Load()
     {
-        Console.Clear();
-        Console.WriteLine("You stay. The walls seem to close in. The silence is deafening.");
-        Console.WriteLine("Time stretches and thins into a meaningless thread.");
-        Console.WriteLine("...");
-        Console.WriteLine("...and then, a sound. A piercing, artificial shriek.");
-        Console.WriteLine("It's the old landline phone on the wall. A phone that hasn't rung in years.");
-        Console.WriteLine("It rings again, insistent.");
-        Console.WriteLine();
-        Console.WriteLine("What do you do?");
-        Console.WriteLine("--------------------------");
-        Console.WriteLine("1. Answer it. Who could it possibly be?");
-        Console.WriteLine("2. Ignore it. Let it ring until it gives up.");
-        Console.WriteLine("3. Rip the cord from the wall. Enforce the silence.");
-        Console.WriteLine();
-        Console.Write("Your choice: ");
-
-        string choice = Console.ReadLine();
-        IScene nextScene;
-
-        switch (choice)
+        // Diese Schleife sorgt dafür, dass wir immer wieder hierher zurückkehren, nachdem wir einen Raum erkundet haben.
+        while (true)
         {
-            case "1":
-                Program.hopeLevel++; // Das Annehmen des Anrufs gibt einen Hoffnungspunkt.
-                nextScene = new AnswerPhoneScene();
-                break;
-            case "2":
-                Program.hopeLevel--; // Das Ignorieren senkt die Hoffnung.
-                nextScene = new IgnorePhoneScene();
-                break;
-            case "3":
-                Program.hopeLevel -= 2; // Eine aggressive, verzweifelte Tat senkt die Hoffnung stark.
-                nextScene = new RipOutPhoneScene();
-                break;
-            default:
-                nextScene = this; 
-                break;
+            Console.Clear();
+            GameHelper.TypeText("You are in the dimly lit living room. The air is stale.");
+            GameHelper.TypeText("The silence of the apartment is a constant companion.");
+            
+            // Zeigt den aktuellen Inventarinhalt an
+            if (Program.Inventory.Any())
+            {
+                Console.WriteLine($"\nYou are carrying: {string.Join(", ", Program.Inventory)}.");
+            }
+
+            Console.WriteLine();
+            Console.WriteLine("Where do you go?");
+            Console.WriteLine("--------------------------");
+            Console.WriteLine("1. To the kitchen.");
+            Console.WriteLine("2. To the bathroom.");
+            Console.WriteLine("3. Back to the main room (with the front door).");
+            Console.WriteLine();
+            Console.Write("Your choice: ");
+
+            string choice = Console.ReadLine();
+            IScene nextScene;
+
+            switch (choice)
+            {
+                case "1":
+                    nextScene = new KitchenScene();
+                    nextScene.Load(); // Lade die Szene und komme danach hierher zurück
+                    break;
+                case "2":
+                    nextScene = new BathroomScene();
+                    nextScene.Load(); // Lade die Szene und komme danach hierher zurück
+                    break;
+                case "3":
+                    new RoomScene().Load(); // Lädt die Hauptszene und bricht diese Schleife ab
+                    return;
+                default:
+                    // Bei Fehleingabe einfach die Schleife wiederholen
+                    break;
+            }
         }
-        nextScene.Load();
     }
 }

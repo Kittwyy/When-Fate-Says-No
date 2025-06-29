@@ -14,7 +14,6 @@ public class WalkTheTracksScene : IScene
         GameHelper.TypeText("It looks up at you with wide, terrified eyes. It doesn't bark. It just shivers.");
         GameHelper.TypeText("You can't just leave it here. For the first time all night, your own problems feel... distant.");
         
-        // Eine positive, verantwortungsvolle Handlung gibt einen großen Hoffnungs-Schub.
         Program.ChangeHope(3); 
         Program.hasDog = true;
         Console.WriteLine("\n[STATE UPDATE: You found a dog! Hope significantly increased.]");

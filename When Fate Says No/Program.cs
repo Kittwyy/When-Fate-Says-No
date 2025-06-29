@@ -11,12 +11,13 @@ class Program
     public static bool bridgeIsBlocked = false;
     public static bool hasDog = false;
     public static bool momHasBeenCalled = false;
-
+    public static bool trainTracksVisited = false;
     
     // FUck you Cookie! Now I have to add Limits!
     public const int MaxHope = 5;
     public const int MinHope = -5;
 
+    public static List<string> Inventory = new List<string>();
     private static List<string> InitializeDiary()
     {
         // 1. Lade die vordefinierten Lore-Einträge
