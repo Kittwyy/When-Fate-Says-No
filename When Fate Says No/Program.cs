@@ -5,11 +5,14 @@ using System.IO;
 class Program
 {
     public static List<string> DiaryEntries = InitializeDiary();
-    
+
     public static int hopeLevel = 0;
     public static bool isInjured = false;
     public static bool bridgeIsBlocked = false;
+    public static bool hasDog = false;
+    public static bool momHasBeenCalled = false;
 
+    
     // FUck you Cookie! Now I have to add Limits!
     public const int MaxHope = 5;
     public const int MinHope = -5;
@@ -28,6 +31,22 @@ class Program
         return entries;
     }
 
+    
+    // Die Methode muss public und static sein, damit sie von überall aufgerufen werden kann.
+    public static void ChangeHope(int amount)
+    {
+        hopeLevel += amount;
+
+        // Stelle sicher, dass der Wert die Grenzen nicht überschreitet.
+        if (hopeLevel > MaxHope)
+        {
+            hopeLevel = MaxHope;
+        }
+        else if (hopeLevel < MinHope)
+        {
+            hopeLevel = MinHope;
+        }
+    }
     static void Main(string[] args)
     {
         // Das Hauptmenü bleibt wie es war.
