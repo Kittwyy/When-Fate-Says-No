@@ -22,7 +22,3 @@ An interactive narrative about a girl who wants to die. The problem? The univers
     * Get the "WFSN.zip" from the Releases Tab.
     * And here the Direct Downloaded Link for the Lazy People
     ##  [Download - When Fate Say No](https://github.com/Kittwyy/When-Fate-Says-No/releases/download/Pre-Alpha/WFSN.zip)
-
-* Open the solution file (`WhenFateSaysNo.sln`) in an IDE such as JetBrains Rider or Visual Studio.
-* Start the project (usually with the green “Play” button or F5).
-* A console window will open and the game will start.
