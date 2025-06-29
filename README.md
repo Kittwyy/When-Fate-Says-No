@@ -22,4 +22,4 @@ An interactive narrative about a girl who wants to die. The problem? The univers
 - Get the "WFSN.zip" from the Releases Tab
 
 ## And here the Direct Download Link for the Lazy 
-###  [Download - When Fate Say No](https://github.com/Kittwyy/When-Fate-Says-No/releases/download/Pre-Alpha/WFSN.zip)
+###  [Download - When Fate Say No](https://github.com/Lunar0sh/When-Fate-Says-No/releases/download/v1.0.1-alpha/WFSN_Pre-Alpha_1.0.1.zip)
