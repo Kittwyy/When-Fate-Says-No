@@ -26,19 +26,21 @@ public class StayInRoomScene : IScene
         switch (choice)
         {
             case "1":
-                nextScene = new AnswerPhoneScene(); // Erstelle die "Annehmen"-Szene
+                Program.hopeLevel++; // Das Annehmen des Anrufs gibt einen Hoffnungspunkt.
+                nextScene = new AnswerPhoneScene();
                 break;
             case "2":
-                nextScene = new IgnorePhoneScene(); // Erstelle die "Ignorieren"-Szene
+                Program.hopeLevel--; // Das Ignorieren senkt die Hoffnung.
+                nextScene = new IgnorePhoneScene();
                 break;
             case "3":
-                nextScene = new RipOutPhoneScene(); // Erstelle die "Kabel-rausreißen"-Szene
+                Program.hopeLevel -= 2; // Eine aggressive, verzweifelte Tat senkt die Hoffnung stark.
+                nextScene = new RipOutPhoneScene();
                 break;
             default:
-                nextScene = this; // Lade die Szene neu bei ungültiger Eingabe
+                nextScene = this; 
                 break;
         }
-        
         nextScene.Load();
     }
 }

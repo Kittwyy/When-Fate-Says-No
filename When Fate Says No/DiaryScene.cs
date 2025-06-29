@@ -1,18 +1,20 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 
 public class DiaryScene : IScene
 {
-    // Die Load-Methode und WriteNewEntry bleiben fast unverändert.
     public void Load()
     {
         while (true)
         {
             Console.Clear();
+            Console.WriteLine($"[DEBUG: Current Hope Level is {Program.hopeLevel}]");
+            Console.WriteLine();
             Console.WriteLine("The leather-bound diary feels heavy in your hands.");
             Console.WriteLine("--------------------------");
             Console.WriteLine("1. Write a new entry.");
-            Console.WriteLine("2. Read entries.");
+            Console.WriteLine("2. Read past entries.");
             Console.WriteLine("3. Close the diary.");
             Console.WriteLine();
             Console.Write("Your choice: ");
@@ -25,7 +27,7 @@ public class DiaryScene : IScene
                     WriteNewEntry();
                     break;
                 case "2":
-                    ReadEntries(); // Diese Methode wird jetzt die Paginierung enthalten
+                    ReadEntries();
                     break;
                 case "3":
                     new RoomScene().Load();
@@ -45,66 +47,61 @@ public class DiaryScene : IScene
         Console.Write("> ");
         string newEntry = Console.ReadLine();
         
-        // Füge das aktuelle Datum für einen schöneren Eintrag hinzu
         string datedEntry = $"{DateTime.Now.ToString("MMMM dd")}.\n{newEntry}";
         Program.DiaryEntries.Add(datedEntry);
+        
+        File.AppendAllText("diary.txt", datedEntry + Environment.NewLine);
 
-        Console.WriteLine("\nEntry saved. Press Enter to return to the diary.");
+        // Das Formulieren von Gedanken kann eine kleine Erleichterung sein.
+        Program.hopeLevel++; 
+        Console.WriteLine($"\nEntry saved. (Hope increased to {Program.hopeLevel})"); // Die Debug-Anzeige hier ist auch hilfreich.
+        Console.WriteLine("Press Enter to return to the diary.");
         Console.ReadLine();
     }
 
-    // KOMPLETT ÜBERARBEITET: Die Methode zum Lesen mit Seiten-System
+    // Die ReadEntries-Methode bleibt unverändert.
     private void ReadEntries()
     {
-        // Zuerst prüfen, ob es überhaupt Einträge gibt.
         if (Program.DiaryEntries.Count == 0)
         {
             Console.Clear();
             Console.WriteLine("The pages are empty.");
             Console.WriteLine("\nPress Enter to return to the diary.");
             Console.ReadLine();
-            return; // Beende die Methode, wenn es nichts zu lesen gibt.
+            return;
         }
 
-        int currentPage = 0; // Wir fangen immer auf der ersten Seite (Index 0) an.
+        int currentPage = 0;
 
-        // Diese Schleife läuft, solange der Spieler im Lesemodus ist.
         while (true)
         {
             Console.Clear();
             Console.WriteLine("--- Diary Entry ---");
             Console.WriteLine();
-            
-            // Zeige den Eintrag der aktuellen Seite an.
             Console.WriteLine(Program.DiaryEntries[currentPage]);
-            
             Console.WriteLine();
             Console.WriteLine("-------------------");
-            // Zeige die Seitenzahl an. Wir addieren 1, da Menschen bei 1 anfangen zu zählen, Computer bei 0.
             Console.WriteLine($"Page {currentPage + 1} of {Program.DiaryEntries.Count}");
             Console.WriteLine("n = next page | p = previous page | b = back to diary menu");
             Console.Write("Navigate: ");
 
-            string navigation = Console.ReadLine().ToLower(); // .ToLower() macht die Eingabe klein (n, p, b)
+            string navigation = Console.ReadLine().ToLower();
 
             switch (navigation)
             {
                 case "n":
-                    // Gehe zur nächsten Seite, aber nur, wenn wir nicht schon auf der letzten sind.
                     if (currentPage < Program.DiaryEntries.Count - 1)
                     {
                         currentPage++;
                     }
                     break;
                 case "p":
-                    // Gehe zur vorigen Seite, aber nur, wenn wir nicht schon auf der ersten sind.
                     if (currentPage > 0)
                     {
                         currentPage--;
                     }
                     break;
                 case "b":
-                    // Verlasse die Lese-Schleife und kehre zum Tagebuch-Menü zurück.
                     return;
             }
         }

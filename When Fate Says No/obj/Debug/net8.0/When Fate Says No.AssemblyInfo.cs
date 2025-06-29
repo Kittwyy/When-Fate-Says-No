@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("When Fate Says No")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+4dfb713ee2f8bd8b85a458bf5251df6a94c9d9d7")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+e62fcda54516bd129d3977f94c09e5e04e39da1f")]
 [assembly: System.Reflection.AssemblyProductAttribute("When Fate Says No")]
 [assembly: System.Reflection.AssemblyTitleAttribute("When Fate Says No")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

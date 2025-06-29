@@ -1,9 +1,33 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.IO;
 
 class Program
 {
+    public static List<string> DiaryEntries = InitializeDiary();
     
-    public static List<string> DiaryEntries = new List<string>(DiaryLore.GetPrewrittenEntries());
+    public static int hopeLevel = 0;
+    public static bool isInjured = false;
+    public static bool bridgeIsBlocked = false;
+
+    // FUck you Cookie~!
+    public const int MaxHope = 5;
+    public const int MinHope = -5;
+
+    private static List<string> InitializeDiary()
+    {
+        // 1. Lade die vordefinierten Lore-Einträge
+        var entries = new List<string>(DiaryLore.GetPrewrittenEntries());
+
+        // 2. Prüfe, ob eine Speicherdatei existiert und lade Spieler-Einträge
+        if (File.Exists("diary.txt"))
+        {
+            entries.AddRange(File.ReadAllLines("diary.txt"));
+        }
+
+        return entries;
+    }
+
     static void Main(string[] args)
     {
         // Das Hauptmenü bleibt wie es war.
@@ -42,8 +66,6 @@ class Program
 
     static void StartGame()
     {
-        // Erstelle eine Instanz unserer Start-Szene und lade sie.
-        // Das ist der einzige Einstiegspunkt in unsere Geschichte.
         IScene startingScene = new RoomScene();
         startingScene.Load();
     }
