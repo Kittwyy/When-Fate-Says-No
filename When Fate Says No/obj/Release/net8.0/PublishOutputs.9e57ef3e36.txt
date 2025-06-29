@@ -1,0 +1,5 @@
+C:\Users\Jade\RiderProjects\When Fate Says No\When Fate Says No\bin\Release\net8.0\publish\When Fate Says No.exe
+C:\Users\Jade\RiderProjects\When Fate Says No\When Fate Says No\bin\Release\net8.0\publish\When Fate Says No.dll
+C:\Users\Jade\RiderProjects\When Fate Says No\When Fate Says No\bin\Release\net8.0\publish\When Fate Says No.deps.json
+C:\Users\Jade\RiderProjects\When Fate Says No\When Fate Says No\bin\Release\net8.0\publish\When Fate Says No.runtimeconfig.json
+C:\Users\Jade\RiderProjects\When Fate Says No\When Fate Says No\bin\Release\net8.0\publish\When Fate Says No.pdb

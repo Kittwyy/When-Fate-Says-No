@@ -10,7 +10,7 @@ class Program
     public static bool isInjured = false;
     public static bool bridgeIsBlocked = false;
 
-    // FUck you Cookie~!
+    // FUck you Cookie! Now I have to add Limits!
     public const int MaxHope = 5;
     public const int MinHope = -5;
 

@@ -1,0 +1,23 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v8.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v8.0": {
+      "When Fate Says No/1.0.0": {
+        "runtime": {
+          "When Fate Says No.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "When Fate Says No/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}
