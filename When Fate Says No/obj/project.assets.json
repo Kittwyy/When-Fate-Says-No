@@ -8,19 +8,19 @@
     "net8.0": []
   },
   "packageFolders": {
-    "C:\\Users\\Jade\\.nuget\\packages\\": {}
+    "C:\\Users\\jaden\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Jade\\RiderProjects\\When Fate Says No\\When Fate Says No\\When Fate Says No.csproj",
+      "projectUniqueName": "C:\\Users\\jaden\\RiderProjects\\When-Fate-Says-No\\When Fate Says No\\When Fate Says No.csproj",
       "projectName": "When Fate Says No",
-      "projectPath": "C:\\Users\\Jade\\RiderProjects\\When Fate Says No\\When Fate Says No\\When Fate Says No.csproj",
-      "packagesPath": "C:\\Users\\Jade\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Jade\\RiderProjects\\When Fate Says No\\When Fate Says No\\obj\\",
+      "projectPath": "C:\\Users\\jaden\\RiderProjects\\When-Fate-Says-No\\When Fate Says No\\When Fate Says No.csproj",
+      "packagesPath": "C:\\Users\\jaden\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\jaden\\RiderProjects\\When-Fate-Says-No\\When Fate Says No\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\Jade\\AppData\\Roaming\\NuGet\\NuGet.Config"
+        "C:\\Users\\jaden\\AppData\\Roaming\\NuGet\\NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "net8.0"

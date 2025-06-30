@@ -36,7 +36,7 @@ public static class GameHelper
             }
             else
             {
-                Thread.Sleep(20); // Etwas schnellere Tipp-Geschwindigkeit
+                Thread.Sleep(5); // Etwas schnellere Tipp-Geschwindigkeit
             }
         }
         Console.WriteLine();

@@ -13,3 +13,18 @@ C:\Users\Jade\RiderProjects\When Fate Says No\When Fate Says No\obj\Debug\net8.0
 C:\Users\Jade\RiderProjects\When Fate Says No\When Fate Says No\obj\Debug\net8.0\When Fate Says No.genruntimeconfig.cache
 C:\Users\Jade\RiderProjects\When Fate Says No\When Fate Says No\obj\Debug\net8.0\ref\When Fate Says No.dll
 C:\Users\Jade\RiderProjects\When Fate Says No\When Fate Says No\obj\Debug\net8.0\When Fate Says No.sourcelink.json
+C:\Users\jaden\RiderProjects\When-Fate-Says-No\When Fate Says No\bin\Debug\net8.0\When Fate Says No.exe
+C:\Users\jaden\RiderProjects\When-Fate-Says-No\When Fate Says No\bin\Debug\net8.0\When Fate Says No.deps.json
+C:\Users\jaden\RiderProjects\When-Fate-Says-No\When Fate Says No\bin\Debug\net8.0\When Fate Says No.runtimeconfig.json
+C:\Users\jaden\RiderProjects\When-Fate-Says-No\When Fate Says No\bin\Debug\net8.0\When Fate Says No.dll
+C:\Users\jaden\RiderProjects\When-Fate-Says-No\When Fate Says No\bin\Debug\net8.0\When Fate Says No.pdb
+C:\Users\jaden\RiderProjects\When-Fate-Says-No\When Fate Says No\obj\Debug\net8.0\When Fate Says No.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\jaden\RiderProjects\When-Fate-Says-No\When Fate Says No\obj\Debug\net8.0\When Fate Says No.AssemblyInfoInputs.cache
+C:\Users\jaden\RiderProjects\When-Fate-Says-No\When Fate Says No\obj\Debug\net8.0\When Fate Says No.AssemblyInfo.cs
+C:\Users\jaden\RiderProjects\When-Fate-Says-No\When Fate Says No\obj\Debug\net8.0\When Fate Says No.csproj.CoreCompileInputs.cache
+C:\Users\jaden\RiderProjects\When-Fate-Says-No\When Fate Says No\obj\Debug\net8.0\When Fate Says No.sourcelink.json
+C:\Users\jaden\RiderProjects\When-Fate-Says-No\When Fate Says No\obj\Debug\net8.0\When Fate Says No.dll
+C:\Users\jaden\RiderProjects\When-Fate-Says-No\When Fate Says No\obj\Debug\net8.0\refint\When Fate Says No.dll
+C:\Users\jaden\RiderProjects\When-Fate-Says-No\When Fate Says No\obj\Debug\net8.0\When Fate Says No.pdb
+C:\Users\jaden\RiderProjects\When-Fate-Says-No\When Fate Says No\obj\Debug\net8.0\When Fate Says No.genruntimeconfig.cache
+C:\Users\jaden\RiderProjects\When-Fate-Says-No\When Fate Says No\obj\Debug\net8.0\ref\When Fate Says No.dll

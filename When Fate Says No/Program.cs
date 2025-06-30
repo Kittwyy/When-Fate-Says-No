@@ -1,56 +1,49 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Threading;
 
-class Program
+// Die Hauptklasse, die unser gesamtes Spiel ausführt und alle Zustände verwaltet.
+public static class Program
 {
-    public static List<string> DiaryEntries = InitializeDiary();
-
+    // --- Globale Spielzustände ---
+    // Werden hier deklariert, um einen Überblick über die geplante Komplexität zu geben.
     public static int hopeLevel = 0;
-    public static bool isInjured = false;
-    public static bool bridgeIsBlocked = false;
-    public static bool hasDog = false;
-    public static bool momHasBeenCalled = false;
-    public static bool trainTracksVisited = false;
+    public static int currentDay = 1;
+    public static bool hasReadDiaryToday = false;
     
-    // FUck you Cookie! Now I have to add Limits!
+    // Zustände, die durch Spieleraktionen verändert werden
+    public static bool isInjured = false;
+    public static bool hasDog = false;
+    
+    // Zustände, die Optionen permanent blockieren
+    public static bool bridgeIsBlocked = false;
+    public static bool trainTracksVisited = false;
+    public static bool momHasBeenCalled = false;
+    
+    // Inventar und Tagebuch
+    public static List<string> Inventory = new List<string>();
+    public static List<DiaryEntry> DiaryEntries = new List<DiaryEntry>(); // Wird später aus DiaryLore.cs befüllt
+
+    // --- Konstanten für die Spielmechanik ---
     public const int MaxHope = 5;
     public const int MinHope = -5;
 
-    public static List<string> Inventory = new List<string>();
-    private static List<string> InitializeDiary()
+
+    // --- Haupt-Startpunkt der Anwendung ---
+    public static void Main(string[] args)
     {
-        // 1. Lade die vordefinierten Lore-Einträge
-        var entries = new List<string>(DiaryLore.GetPrewrittenEntries());
+        // 1. Zeige die Trigger-Warnung an, bevor irgendetwas anderes passiert.
+        ShowTriggerWarning();
 
-        // 2. Prüfe, ob eine Speicherdatei existiert und lade Spieler-Einträge
-        if (File.Exists("diary.txt"))
-        {
-            entries.AddRange(File.ReadAllLines("diary.txt"));
-        }
-
-        return entries;
+        // 2. Starte die Hauptmenü-Schleife.
+        MainMenuLoop();
     }
 
+    // --- Kern-Methoden der Spiel-Logik ---
     
-    // Die Methode muss public und static sein, damit sie von überall aufgerufen werden kann.
-    public static void ChangeHope(int amount)
+    private static void MainMenuLoop()
     {
-        hopeLevel += amount;
-
-        // Stelle sicher, dass der Wert die Grenzen nicht überschreitet.
-        if (hopeLevel > MaxHope)
-        {
-            hopeLevel = MaxHope;
-        }
-        else if (hopeLevel < MinHope)
-        {
-            hopeLevel = MinHope;
-        }
-    }
-    static void Main(string[] args)
-    {
-        // Das Hauptmenü bleibt wie es war.
         while (true)
         {
             Console.Clear();
@@ -58,7 +51,7 @@ class Program
             Console.WriteLine("      When Fate Says No");
             Console.WriteLine("================================");
             Console.WriteLine();
-            Console.WriteLine("1. Start Game");
+            Console.WriteLine("1. Start New Game");
             Console.WriteLine("2. Options");
             Console.WriteLine("3. Quit");
             Console.WriteLine();
@@ -69,32 +62,91 @@ class Program
             switch (choice)
             {
                 case "1":
-                    StartGame();
+                    StartNewGame();
                     break;
                 case "2":
                     ShowOptions();
                     break;
                 case "3":
-                    return;
-                default:
-                    Console.WriteLine("Invalid input. Press Enter to try again.");
-                    Console.ReadLine();
+                    Environment.Exit(0); // Beendet das Programm sauber.
                     break;
             }
         }
     }
-
-    static void StartGame()
+    
+    private static void StartNewGame()
     {
+        // Setzt alle Zustände für einen neuen Spieldurchlauf zurück.
+        hopeLevel = 0;
+        currentDay = 1;
+        hasReadDiaryToday = false;
+        isInjured = false;
+        bridgeIsBlocked = false;
+        trainTracksVisited = false;
+        momHasBeenCalled = false;
+        hasDog = false;
+        Inventory.Clear();
+        
+        // Lädt die Lore-Einträge neu.
+        // TODO: Diese Zeile wird erst funktionieren, wenn DiaryLore.cs existiert.
+        // DiaryEntries = new List<DiaryEntry>(DiaryLore.GetPrewrittenEntries());
+
+        // Startet die erste Szene des Spiels.
+        // TODO: Diese Zeile wird erst funktionieren, wenn RoomScene.cs existiert.
         IScene startingScene = new RoomScene();
         startingScene.Load();
     }
+
+    // --- Helfer-Methoden ---
+
+    public static void ChangeHope(int amount)
+    {
+        hopeLevel += amount;
+        hopeLevel = Math.Clamp(hopeLevel, MinHope, MaxHope);
+    }
+
+    public static void AdvanceDay()
+    {
+        currentDay++;
+        hasReadDiaryToday = false; // Setzt das Lese-Limit für den neuen Tag zurück.
+        GameHelper.TypeText($"\n[A new day begins. It is Day {currentDay}.]"); // Benötigt GameHelper.cs
+        Thread.Sleep(2500);
+    }
     
-    static void ShowOptions()
+    private static void ShowOptions()
     {
         Console.Clear();
-        Console.WriteLine("Options are not yet implemented.");
+        GameHelper.TypeText("Options are not yet implemented."); // Benötigt GameHelper.cs
         Console.WriteLine("\nPress Enter to return to the main menu.");
         Console.ReadLine();
     }
+    
+    private static void ShowTriggerWarning()
+    {
+        Console.Clear();
+        Console.ForegroundColor = ConsoleColor.Yellow;
+        Console.WriteLine("TRIGGER WARNING\n");
+        Console.ResetColor();
+        Console.WriteLine("This game contains direct depictions and themes of suicide, depression,");
+        Console.WriteLine("and self-harm which may be distressing to some players.");
+        Console.WriteLine("\nPlayer discretion is advised.");
+        Console.WriteLine("\n\nPress Enter to acknowledge and continue.");
+        Console.ReadLine();
+    }
+}
+
+
+// --- Interfaces und Structs (gehören eigentlich in eigene Dateien) ---
+
+// TODO: Diese Definitionen in eigene Dateien auslagern (IScene.cs, DiaryEntry.cs)
+public interface IScene
+{
+    void Load();
+}
+
+public struct DiaryEntry
+{
+    public string Title;
+    public string Content;
+    public int HopeChange;
 }
